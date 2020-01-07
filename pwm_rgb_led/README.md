@@ -8,10 +8,10 @@ A bitstream file [LED_PWM.bit](LED_PWM.bit) is included and can be flashed onto 
 
 ```python
 import numpy as np
-from pynq import Overlay, MIMO
+from pynq import Overlay, MMIO
 
 overlay = Overlay("LED_PWM.bit")
-rgb_leds = MMIO(0x4121000, 0x10000)
+rgb_leds = MMIO(0x41210000, 0x10000)
 
 def set_color(r,g,b):
     colors = np.array([r,g,b,0], dtype=np.uint8)
